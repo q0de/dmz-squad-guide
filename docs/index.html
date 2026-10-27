@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111a16">
+  <meta name="description" content="A phone and second-monitor companion for four Hajin DMZ missions. Follow ordered steps, track your run, and share a mission with your squad.">
+  <title>DMZ Squad Guide · Hajin</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%23111a16'/%3E%3Cpath d='M12 24h24M24 12v24' stroke='%23d1ed8a' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#mission">Skip to mission steps</a>
+  <header class="topbar">
+    <a href="#silent-ledger" class="brand"><span class="crosshair" aria-hidden="true">+</span><span>DMZ <b>SQUAD GUIDE</b><small>HAJIN / FIELD COMPANION</small></span></a>
+    <div class="top-actions"><button id="largeText" class="quiet" aria-pressed="false">Aa <span>Large text</span></button><button id="shareButton" class="primary">Share guide <span aria-hidden="true">↗</span></button></div>
+  </header>
+  <div class="workspace">
+    <aside class="mission-rail" aria-label="Mission selection">
+      <div class="rail-heading"><span class="eyebrow">CHOOSE YOUR RUN</span><span class="count">04</span></div>
+      <nav id="missionNav" aria-label="Missions"></nav>
+      <div class="rail-note"><span class="tiny-cross" aria-hidden="true">✦</span><p><strong>Completed? Run it again.</strong><br>Choose one mission per deployment. Each guide has its own checklist.</p></div>
+      <div class="rail-tools"><button id="wakeButton" class="utility" aria-pressed="false">Keep screen awake</button><a class="utility" href="dmz-guide-offline.html" download>Download offline guide <span aria-hidden="true">↓</span></a><button id="printButton" class="utility">Print this mission</button></div>
+      <p class="rail-foot">Independent guide · MW4 DMZ<br>Reference checked 27 Oct 2026</p>
+    </aside>
+    <main id="mission" tabindex="-1">
+      <div id="missionHeader"></div>
+      <section class="visual-panel" aria-label="Visual mission guide">
+        <div class="visual-heading"><div><span class="eyebrow">PICTURE GUIDE</span><h2>See where to go next</h2></div><button id="photoJump" class="text-button">Photo steps ↓</button></div>
+        <div class="visual-tabs" role="group" aria-label="Choose picture"><button id="showGround" aria-pressed="true">On the ground</button><button id="showRoute" aria-pressed="false">Route order</button><button id="showLocation" aria-pressed="false">Map location</button></div>
+        <div id="groundView"><div class="ground-label"><span class="eyebrow">ACTUAL GAMEPLAY</span><span id="groundCount"></span></div><button id="groundImageButton" class="visual-preview"><img id="groundImage" alt=""><span>Tap to enlarge ↗</span></button><div class="ground-caption"><h3 id="groundTitle"></h3><p><b>LOOK FOR</b><span id="groundLandmark"></span></p><p><b>NEXT</b><span id="groundNext"></span></p><div class="ground-actions"><button id="groundStep" class="primary">Go to this step ↓</button><a id="groundSource" target="_blank" rel="noopener">Image source ↗</a></div></div><div class="ground-navigation"><button id="groundPrevious" aria-label="Previous ground view">← Previous</button><button id="groundNextButton" aria-label="Next ground view">Next view →</button></div><div id="groundChoices" class="ground-choices" role="group" aria-label="Choose a ground-level view"></div><p class="ground-note">Match the landmarks, then follow your current mission marker. Gameplay screenshots © Activision.</p></div>
+        <button id="visualPreview" class="visual-preview" aria-label="Enlarge route picture"><img id="routePreview" alt=""><span>Tap to enlarge ↗</span></button>
+        <p id="visualCaption" class="visual-caption"></p>
+        <a id="downloadRoute" class="route-download" download>Save route picture ↓</a>
+      </section>
+      <div class="progress-block"><div class="progress-meta"><strong id="progressText" aria-live="polite"></strong><button id="resetButton" class="text-button">New run ↺</button></div><div class="progress-track" role="progressbar" aria-label="Mission progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progressFill"></span></div><p class="local-note">Progress stays on this device. Your friend has their own checklist.</p></div>
+      <div class="route-heading"><span class="eyebrow">MISSION ORDER</span><span>Tap a step when it’s done</span></div>
+      <ol id="steps" class="steps"></ol>
+      <div id="completion" class="completion" hidden><span aria-hidden="true">✓</span><div><strong>Run checklist complete.</strong><p>Confirm the game shows mission completion and successful extraction.</p></div></div>
+      <details id="sources" class="sources"><summary>Sources & guide notes</summary><div id="sourceLinks"></div><p>Mission markers and your in-game objective take priority. Codes, threats and payouts can vary. This is a community reference, not a live game connection.</p></details>
+    </main>
+    <aside class="intel" aria-label="Map and squad notes">
+      <div class="intel-sticky">
+        <section class="map-card"><div class="card-top"><span class="eyebrow">LOCATION REFERENCE</span><span id="mapNumber" class="map-number"></span></div><button id="mapButton" class="map-button" aria-label="Enlarge mission map"><img id="mapImage" alt=""><span class="map-expand">Enlarge map ↗</span></button><div class="map-caption"><strong id="mapTitle"></strong><p id="mapCaption"></p><a id="liveMap" href="https://dmztracker.gg/map/hajin/" target="_blank" rel="noopener">Open interactive Hajin map ↗</a></div></section>
+        <section class="kit-card"><span class="eyebrow">BEFORE YOU DEPLOY</span><ul id="kit"></ul></section>
+        <section class="squad-card"><span class="eyebrow">SQUAD TIP</span><p id="squadTip"></p></section>
+        <p class="credit">Map reference: DMZTracker · Game imagery © Activision. Numbered annotations identify mission areas, not an indoor floor plan.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="fieldbar"><div><span class="eyebrow" id="nextLabel">NEXT STEP</span><strong id="nextTitle"></strong></div><button id="nextButton" class="primary">Go to step ↓</button><button id="mobileMap" class="quiet" aria-label="Open map">Map</button></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <dialog id="visualDialog" class="visual-dialog"><div class="dialog-head"><div><span id="pictureCount" class="eyebrow"></span><h2 id="pictureTitle"></h2></div><button id="closePicture" class="quiet" aria-label="Close picture">Close ×</button></div><p id="pictureCaption"></p><div id="pictureFrame" class="picture-frame"><img id="pictureImage" alt=""></div><div class="picture-controls"><button id="previousPicture" aria-label="Previous picture">← Previous</button><button id="zoomPicture" aria-pressed="false">Zoom in</button><button id="nextPicture" aria-label="Next picture">Next →</button></div><div class="picture-footer"><a id="pictureDownload" download>Save image ↓</a><a id="pictureSource" target="_blank" rel="noopener">Image source ↗</a></div></dialog>
+  <dialog id="mapDialog" class="map-dialog"><div class="dialog-head"><div><span class="eyebrow">HAJIN / MISSION REFERENCE</span><h2 id="mapDialogTitle">Mission map</h2></div><button id="closeMap" class="quiet" aria-label="Close map">Close ×</button></div><p>Pinch or scroll to inspect. Use in-game markers for the room-by-room route.</p><div class="map-scroll"><img id="largeMap" alt=""></div><div class="map-legend" id="mapLegend"></div></dialog>
+  <dialog id="shareDialog" class="share-dialog"><div class="dialog-head"><h2>Send this to your squad</h2><button id="closeShare" class="quiet" aria-label="Close sharing">Close ×</button></div><p>Opens on a phone, tablet or second monitor. This link opens the selected mission; checkmarks stay on each device.</p><label for="shareUrl">Mission link</label><input id="shareUrl" type="url" readonly><div class="share-actions"><button id="copyLink" class="primary">Copy link</button><button id="nativeShare" class="quiet">Share…</button></div><a class="offline-link" href="dmz-guide-offline.html" download>Or download a single-file offline guide ↓</a></dialog>
+  <script src="visual-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

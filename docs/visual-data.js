@@ -1,0 +1,44 @@
+const VISUALS = {
+ 'silent-ledger':{route:'assets/route-silent-ledger.svg',name:'Silent Ledger',place:'HEAVENLY LUCK CASINO · HAJIN',nodes:[['Lobby elevators','Trigger the power task'],['Parking generator','Start it with the timing bar'],['Penthouse security','Return to the elevators'],['CCTV station','Open the vault fence'],['Basement vault','Drill and defend'],['Printing plates','Take the Plate Bag'],['Cash bags · optional','Load truck, then chopper'],['Mission helicopter','Whole squad extracts']],photos:[
+ {step:1,file:'assets/casino-generator.webp',title:'Yellow parking generator',caption:'Look for the yellow machine in the dark utility room. Use the interaction timing bar.',source:'COD Central',url:'https://codcentral.net/blog/mw4-dmz-operation-silent-ledger/'},
+ {step:3,file:'assets/casino-cameras.webp',title:'Parking-level camera station',caption:'In penthouse security, use this CCTV desk. Select the view of the basement fence.',source:'COD Central',url:'https://codcentral.net/blog/mw4-dmz-operation-silent-ledger/'},
+ {step:4,file:'assets/casino-vault.webp',title:'Round vault door and drill',caption:'This is the basement door. Start the drill, then cover the approaches until it finishes.',source:'COD Central',url:'https://codcentral.net/blog/mw4-dmz-operation-silent-ledger/'}]},
+ 'critical-extraction':{route:'assets/route-critical-extraction.svg',name:'Critical Extraction',place:'MIRAE GENERAL HOSPITAL · HAJIN',nodes:[['Hospital entrance','Clear a path to the marker'],['Kang’s bed · ICU','Use the sedative prompt'],['Escort corridors','One pushes, others cover'],['Marked elevators','Defend; move bed through'],['Rooftop helicopter','Push bed up the rear ramp'],['Board and extract','Confirm Kang is secured']],photos:[
+ {step:1,file:'assets/hospital-kang.webp',title:'Find Kang in this wheeled bed',caption:'Follow the patient marker to the bed. Use the sedative interaction before escorting him.',source:'COD Central',url:'https://codcentral.net/blog/mw4-dmz-operation-critical-extraction/'},
+ {step:3,file:'assets/hospital-elevators.webp',title:'Elevator defense checkpoint',caption:'Bring the bed to the marked elevator. Hold here while the opening bar fills.',source:'COD Central',url:'https://codcentral.net/blog/mw4-dmz-operation-critical-extraction/'},
+ {step:4,file:'assets/hospital-chopper.webp',title:'Push the bed into the cabin',caption:'Use the open rear ramp. The bed needs to enter the helicopter; the helipad alone is not enough.',source:'COD Central',url:'https://codcentral.net/blog/mw4-dmz-operation-critical-extraction/'}]},
+ 'shopping-hacks':{route:'assets/route-shopping-hacks.svg',name:'Shopping Hacks',place:'NURIGO MALL · HAJIN',nodes:[['Encampment laptop','Hack; read your code'],['Parking · Entrance 36','Unlock the security door'],['Security Annex','Generator, then laptop'],['Robot dogs','Collect 4 intact K9 cores'],['Lab-door terminal','Insert cores into all 4 slots'],['Lab computers','Start all 5 hacks'],['Defend the lab','Restart failed computers'],['Lab vault','Take Bio-agent Sample'],['Upper rooftop','Garage → ascender → ladder'],['Fulton extraction','Activate, then attach']],photos:[
+ {step:0,file:'assets/mall-laptop.webp',title:'Encampment laptop by the window',caption:'Hold the hack interaction here. Read the code from your own objective once analysis finishes.',source:'COD Central',url:'https://codcentral.net/blog/mw4-dmz-operation-shopping-hacks/'},
+ {step:3,file:'assets/mall-core.webp',title:'The working K9 Battery Core',caption:'Match the blue Rare item name. Destroyed K9 Battery Cores will not power the lab door.',source:'COD Central',url:'https://codcentral.net/blog/mw4-dmz-operation-shopping-hacks/'},
+ {step:4,file:'assets/mall-terminal.webp',title:'Four slots beside the lab door',caption:'Transfer the cores into these terminal slots until the objective reads 4/4.',source:'COD Central',url:'https://codcentral.net/blog/mw4-dmz-operation-shopping-hacks/'},
+ {step:6,file:'assets/mall-error.webp',title:'Orange error screen = restart',caption:'Hold the restart interaction on failed computers. Keep the running counter at 5/5.',source:'COD Central',url:'https://codcentral.net/blog/mw4-dmz-operation-shopping-hacks/'}]},
+ 'iron-citadel':{route:'assets/route-iron-citadel.svg',name:'Iron Citadel',place:'CHANG-SAN AIR BASE · HAJIN',nodes:[['Marked search areas','Scan and take access card'],['Admin Complex No. 2','Upgrade card; collect it'],['Entrance Garage','Enter bunker and armory'],['Bunker code notes','Find all 3; use your code'],['Armory manifest','Defeat Colossus; Read Note'],['Munitions crates','Plant marked explosives'],['Aircraft targets','Sabotage all 3 aircraft'],['Marked SAM site','Stay until capture finishes'],['Mission helicopter','Extract with the manifest']],photos:[
+ {step:1,file:'assets/airbase-upgrade.webp',title:'Orange terminal between server racks',caption:'Admin Complex No. 2: activate the card upgrade and defend until the objective advances.',source:'DMZ Wiki / MrDalekJD',url:'https://dmzwiki.com/guides/iron-citadel'},
+ {step:4,file:'assets/airbase-manifest.webp',title:'Manifest paper on the open case',caption:'Find the four yellow circular devices. Read the paper on the case’s front, then close the note.',source:'DMZ Wiki / Trialfail',url:'https://dmzwiki.com/guides/iron-citadel'}]}
+};
+const GROUND_VIEWS = {
+ 'silent-ledger':[
+  {step:0,file:'assets/casino-approach.webp',title:'Street approach through Cheongun Village',landmark:'Low houses and the tall hotel in the distance.',next:'Follow the casino objective through the village, then reach its lobby elevators.'},
+  {step:4,file:'assets/casino-parking-elevator.webp',title:'The B1 / B2 PARKING elevators',landmark:'Black PARKING sign, down arrow and gold elevator doors.',next:'After opening the fence from CCTV, take this elevator down to the vault.'},
+  {step:5,file:'assets/casino-vault-room.webp',title:'Inside the vault’s wire-mesh cage',landmark:'The open mesh doorway and bright square ceiling panels.',next:'Enter the cage and follow the printing-plates marker to the Plate Bag.'},
+  {step:6,file:'assets/casino-exfil.webp',title:'Cash bags inside the extraction cabin',landmark:'Open helicopter cabin with bags on its floor.',next:'Bring optional cash bags aboard and wait for the whole squad before leaving.'}
+ ],
+ 'critical-extraction':[
+  {step:1,file:'assets/hospital-hall.webp',title:'Hospital hall on the way to Kang',landmark:'Double doors with a green exit sign beside the elevator.',next:'Keep following Find General Kang through the wards to his marked bed.'},
+  {step:2,file:'assets/hospital-operating-corridor.webp',title:'Escort past the Operating Room',landmark:'Purple Operating Room sign and the doorway with a large 2 ahead.',next:'Clear the next doorway while your teammate pushes Kang’s bed along the escort marker.'},
+  {step:4,file:'assets/hospital-roof.webp',title:'Line the bed up with the rear ramp',landmark:'The helicopter’s lowered rear ramp on the rooftop helipad.',next:'Push the bed up the ramp into the cabin; keep covering the pusher.'}
+ ],
+ 'shopping-hacks':[
+  {step:1,file:'assets/mall-storefront.webp',title:'Shop passage toward mall security',landmark:'The bright shop fascia and open passage through the dark storefront.',next:'Follow your security marker to underground parking and use your own keypad code. This view is the approach, not the keypad door.'},
+  {step:3,file:'assets/mall-atrium.webp',title:'Atrium where the robot dogs patrol',landmark:'Glass elevator shafts, escalators and colorful triangular balcony panels.',next:'Find K9 robot dogs in the atrium and loot working cores quickly. Return to the lab terminal once you have four.'}
+ ],
+ 'iron-citadel':[
+  {step:2,file:'assets/airbase-bunker-garage.webp',title:'Entrance Garage into the bunker',landmark:'The broad vehicle bay, cargo containers and yellow-black barriers.',next:'Follow Find the Armory Doors through the bunker. Keep cover between you and heavy enemies.'},
+  {step:6,file:'assets/airbase-aircraft.webp',title:'Strike aircraft on the tarmac',landmark:'The parked military jet beside the air-base buildings.',next:'Plant charges at each marked aircraft; finish the objective counter at 3/3.'},
+  {step:8,file:'assets/airbase-exfil.webp',title:'Extraction marker beside the tower',landmark:'Green smoke near the tower and low utility buildings in this recorded run.',next:'After the SAM stage, follow your active exfil marker and board the mission helicopter.'}
+ ]
+};
+for(const [id,views] of Object.entries(GROUND_VIEWS)){
+ for(const p of views)VISUALS[id].photos.push({...p,ground:true,caption:'Look for: '+p.landmark+' Next: '+p.next,source:'COD Central',url:'https://codcentral.net/blog/mw4-dmz-operation-'+id+'/'});
+ VISUALS[id].photos.sort((a,b)=>a.step-b.step||(a.ground?-1:0)-(b.ground?-1:0));
+}
